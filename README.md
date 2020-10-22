@@ -12,10 +12,14 @@ Instructor: Padmanabhan Rajan Sir
 
 
 # How to run the program?
-1. Clone the Repository using "git clone https://github.com/spider0061/CS308-Sept-2020-Git-Lab-PartB.git" . 
-2. Type "python3 main.py" (without quotes) in the root folder in shell'
+1. Install `tkinter` : `sudo apt install python3-tk`
+2. Install required dependencies : `pip3 install -r requirements.txt`
+3. Run main.py : `python3 main.py`
 
-# Software Requirements?
+
+
+
+# Module Requirements?
 1. Tkinter
 2. nltk, nltk (punkt)
 3. Matplotlb library
