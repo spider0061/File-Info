@@ -8,6 +8,7 @@ global h1,h2,h3,h4,h5,h6,panel
 fileadd=""
 original_content=""
 matched_sentences=""
+content=""
 
 def open_file(arg):
     if(arg==1): 
@@ -56,23 +57,23 @@ def open_file(arg):
     panel.image = img2
 
 def open_keyword_file():
-	file = askopenfile(mode ='r', filetypes=[("Text files","*.txt")]) 
-	global content
-  if file is not None: 
-      content = file.read() 
-  keywords=content.split('\n')
-  global original_content
-  sentences=tokenize.sent_tokenize(original_content)
-  global matched_sentences
-  matched_sentences=""
-  for word in keywords:
-    if(word==''):
-      break
-    else:
-      for senten in sentences:
-        if(word in senten):
-          matched_sentences=matched_sentences+str(senten)+'\n'
-  h6.config(text=matched_sentences)
+    file = askopenfile(mode ='r', filetypes=[("Text files","*.txt")]) 
+    global content
+    if file is not None: 
+        content = file.read() 
+    keywords=content.split('\n')
+    global original_content
+    sentences=tokenize.sent_tokenize(original_content)
+    global matched_sentences
+    matched_sentences=""
+    for word in keywords:
+      if(word==''):
+        break
+      else:
+        for senten in sentences:
+          if(word in senten):
+            matched_sentences=matched_sentences+str(senten)+'\n'
+    h6.config(text=matched_sentences)
 
 def close_window(root): 
     root.destroy()
