@@ -57,7 +57,22 @@ def open_file(arg):
 
 def open_keyword_file():
 	file = askopenfile(mode ='r', filetypes=[("Text files","*.txt")]) 
-	#will be done by B18161
+	global content
+  if file is not None: 
+      content = file.read() 
+  keywords=content.split('\n')
+  global original_content
+  sentences=tokenize.sent_tokenize(original_content)
+  global matched_sentences
+  matched_sentences=""
+  for word in keywords:
+    if(word==''):
+      break
+    else:
+      for senten in sentences:
+        if(word in senten):
+          matched_sentences=matched_sentences+str(senten)+'\n'
+  h6.config(text=matched_sentences)
 
 def close_window(root): 
     root.destroy()
@@ -101,5 +116,13 @@ img=img.resize((200,200),Image.ANTIALIAS)
 img= ImageTk.PhotoImage(img)
 panel = Label(root, image=img,width=200)
 panel.pack(side=TOP,anchor=NE,fill="both")
+
+btn4 = Button(root, text ='Open Keywords File', command = lambda:open_keyword_file()) 
+btn4.pack(pady=2)
+
+h6h= Label(root,text="Matched Sentences from the given input file are:");
+h6h.pack(pady=2)
+h6= Label(root,text="");
+h6.pack(pady=2)
 
 root.mainloop()
