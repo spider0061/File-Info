@@ -72,7 +72,8 @@ def open_keyword_file():
       else:
         for senten in sentences:
           if(word in senten):
-            h6.insert(END, word)
+            h6.insert(END, senten)
+    h6.config(width = 200)
 
 def close_window(root): 
     root.destroy()
