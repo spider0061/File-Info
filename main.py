@@ -72,8 +72,7 @@ def open_keyword_file():
       else:
         for senten in sentences:
           if(word in senten):
-            matched_sentences=matched_sentences+str(senten)+'\n'
-    h6.config(text=matched_sentences)
+            h6.insert(END, word)
 
 def close_window(root): 
     root.destroy()
@@ -123,7 +122,11 @@ btn4.pack(pady=2)
 
 h6h= Label(root,text="Matched Sentences from the given input file are:");
 h6h.pack(pady=2)
-h6= Label(root,text="");
+
+scrollbar = Scrollbar(root)
+scrollbar.pack(side = RIGHT)
+h6 = Listbox(root, yscrollcommand = scrollbar.set)
 h6.pack(pady=2)
+scrollbar.config(command = h6.yview)
 
 root.mainloop()
