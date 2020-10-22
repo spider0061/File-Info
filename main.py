@@ -117,4 +117,12 @@ img= ImageTk.PhotoImage(img)
 panel = Label(root, image=img,width=200)
 panel.pack(side=TOP,anchor=NE,fill="both")
 
+btn4 = Button(root, text ='Open Keywords File', command = lambda:open_keyword_file()) 
+btn4.pack(pady=2)
+
+h6h= Label(root,text="Matched Sentences from the given input file are:");
+h6h.pack(pady=2)
+h6= Label(root,text="");
+h6.pack(pady=2)
+
 root.mainloop()
